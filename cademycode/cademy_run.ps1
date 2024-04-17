@@ -1,4 +1,4 @@
-# Set-Location .\cademycode\cademyPy
+
 $result =pytest .\cademycode\cademyPy\tests.py 
 
 
