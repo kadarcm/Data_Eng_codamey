@@ -43,10 +43,10 @@ class Clean:
         self.big_df= self.big_df.merge(self.df_dic["cademycode_student_jobs"].drop_duplicates(), left_on="job_id", right_on="job_id")
         self.big_df.drop(columns=["job_id", "career_path_id"], inplace=True)
 
-    def output_dbs(self):
-        engine =sq.create_engine("sqlite:///DBs/cademycode_anylitic.db")
-        self.big_df.to_csv("./DBs/cademycode.csv")
-        self.big_df.to_parquet("./DBs/cademycode.parquet.gzip", compression="gzip")
+    def output_dbs(self, path):
+        engine =sq.create_engine(f"sqlite:///{path}/cademycode_anylitic.db")
+        self.big_df.to_csv(f"./{path}/cademycode.csv")
+        self.big_df.to_parquet(f"./{path}/cademycode.parquet.gzip", compression="gzip")
         self.big_df.to_sql('cademycode_scrubbed', engine, if_exists='replace', index=False)
 
     def add_unknown_rows(self):
