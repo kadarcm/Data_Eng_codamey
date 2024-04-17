@@ -1,0 +1,4 @@
+{
+    "read_connection_str": "sqlite:///cademycode/DBs/cademycode.db",
+    "write_connection_str": "sqlite:///cademycode/DBs/cademycode_anylitic.db"
+}
